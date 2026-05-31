@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto ARCA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Projeto ARCA</div>
+        <nav>
+            <ul>
+                <li><a href="">Agende uma Consulta</a></li>
+                <li><a href="">Adoção</a></li>
+                <li><a href="">Denúncias</a></li>
+                <li><a href="">Solicitações</a></li>
+                <li><a href="">Saiba Mais</a></li>
+                <li class="darkmode">
+                    <input type="checkbox" />
+                    <span>Modo escuro</span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+  <main>
+    <p class="Agendar"> Agendar Consulta</p>
+    <br>
+    <div class="meio">
+        <h3>Tipo de Atendimento:</h3>
+            <div class="tipoAtendimento">
+                <input type="radio" name="tipoAtendimentoRadios" id="tipoConsulta">
+                <label for="tipoConsulta">Consulta Geral</label>
+
+                <input type="radio" name="tipoAtendimentoRadios" id="tipoVacinacao">
+                <label for="tipoVacinacao">Vacinação</label>
+
+                <input type="radio" name="tipoAtendimentoRadios" id="tipoCastracao">
+                <label for="tipoCastracao">Castração</label>
+
+                <input type="radio" name="tipoAtendimentoRadios" id="tipoMicrochipagem">
+                <label for="tipoMicrochipagem">Microchipagem</label>
+            </div>
+            <h3 style="justify-self: center;">Horários Disponíveis:</h3>
+            <label id="horariosDisponives">
+                <p style="font-size: 22px; margin-top: 4px;">Data:</p>  
+                <input type="date">
+            </label>
+        <div class = "horarios">
+            <div class="linhaHorarios">
+                <span class = "textoHorarios">Manhã:</span>
+                <div class="grupoHorarios">
+                    <input type="radio" id = "7" name = "radioHorario">
+                    <label for="7" class = "disponivel">07:00</label>
+
+                    <input type="radio" id ="8" name = "radioHorario">
+                    <label for="radio" class = "indisponivel">08:00</label>
+
+                    <input type="radio" id = "9" name = "radioHorario">
+                    <label for="9" class = "indisponivel">09:00</label>
+
+                    <input type="radio" id = "10" name = "radioHorario">
+                    <label for="10" id = "10" class = "indisponivel">10:00</label>
+
+                    <input type="radio" id = "11" name = "radioHorario">
+                    <label for="11" id = "11" class = "disponivel">11:00</label>
+
+                    <input type="radio" id = "12" name = "radioHorario">
+                    <label for="12" id = "12" class = "disponivel">12:00</label>
+                </div>
+            </div>
+            <div class="linhaHorarios2">
+                <br>
+                <span class = "textoHorarios">Tarde:</span>
+                <div class="grupoHorarios">
+                    <input type="radio" id = "13" name = "radioHorario">
+                    <label for="13" class = "disponivel">13:00</label>
+
+                    <input type="radio" id ="14" name = "radioHorario">
+                    <label for="14" class = "disponivel">14:00</label>
+
+                    <input type="radio" id = "15" name = "radioHorario">
+                    <label for="15" class = "disponivel">15:00</label>
+
+                    <input type="radio" id = "16" name = "radioHorario">
+                    <label for="16" id = "16" class = "disponivel">16:00</label>
+
+                    <input type="radio" id = "17" name = "radioHorario">
+                    <label for="17" id = "17" class = "disponivel">17:00</label>
+
+                    <input type="radio" id = "18" name = "radioHorario">
+                    <label for="18" id = "18" class = "disponivel">18:00</label>
+                </div>
+            </div>
+            <h3>Dados do animal</h3>
+        <div class = "dados animal">
+            <br>
+            <span>Espécie:</span>
+            <select name="especie" id="especieSelect">
+                <option value="cachorro">Cachorro</option>
+                <option value="gato">Gato</option>
+            </select>
+            <span>Idade:</span>
+            <span label for="idadeText">
+                <input type="text" placeholder="Ex: 20">
+                <br>
+            </label>
+            <br>
+            <div class="nomeAnimal">
+                <span>Nome do Animal:</span>
+                <input type="text" name="nomeAnimalL" id="nomeAnimalL" placeholder="Ex: Luna">
+                <label for="nomeAnimal"></label>
+            </div>
+            <br>
+            <div class="observacoesLabel2">
+                <p>Observações:</p>
+                <label for="observacoesLabel">
+                    <textarea name="observacoesText" id="observacoesTextid" placeholder="Escreva aqui o texto"></textarea>
+                </label>
+            </div>
+        </div>
+        <br>
+        <div class="dadosTutor">
+            <h3>Dados do Tutor</h3>
+            <div class="nomeEETelefone">
+                <div class="campo">
+                    <span>Nome do tutor:</span>
+                    <input type="text" name="nomeTutorTextin" id="nomeTutorTextid" placeholder="Ex: Alberto Silva">
+                </div>
+                <div class="campo">
+                    <span>Telefone:</span>
+                    <input type="tel" placeholder="Ex: 99999-9999">
+                </div>
+            </div>
+            <div class="emailLabel">
+                <span>Email:</span>
+                <input type="email" placeholder="Ex: xxxxx@gmail.com">    
+            </div>
+        </div>
+        <br>
+        <div class="termoDeEsclarecimento">
+            <p style="font-size: 18px">Termo de Esclarecimento
+            <a href="./docs/Termo de Esclarecimento.pdf" download="Termo de esclarecimento">
+                <img src="./imgs/File.png" alt="imagem de arquivo" class = "file">
+            </a>
+            </p>
+        </div>
+        <br>
+        <div class="botaoVerde">
+            <button id = "Verde">Enviar solicitação para atendimento</button>
+        </div>
+
+    </div>
+  </main>
+  <footer>
+    <p style="font-size: 18px;">
+      © SEICIT/SUBTI - Subsecretaria de Tecnologia da Informação<br>
+      Rua Maestro Antônio Cícero, 111, Caçaroca, Prefeitura, Serra/ES, CEP 29176-11
+    </p>
+  </footer>
+</body>
+</html>
