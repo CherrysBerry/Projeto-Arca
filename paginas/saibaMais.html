@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saiba Mais </title>
+    <link rel="stylesheet" href="../assets/css/saibaMais.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <a href="../index.html" class="logo" style="color: #F9AF58;">Projeto ARCA</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="./consulta.html">Agende uma Consulta</a></li>
+                <li><a href="./adocao.html">Adoção</a></li>
+                <li><a href="./denuncias.html">Denúncias</a></li>
+                <li><a href="#" onclick="redirecionarSolicitacoes(event)">Solicitações</a></li>
+                <li><a href="./saibaMais.html">Saiba Mais</a></li>
+                <li>
+                    <div class="perfil">
+                        <button id="botaoPerfil" onclick="toggleMenu()">
+                            <img src="../imgs/Profile.png" alt="imagem de perfil">
+                        </button>
+                        <div class="dropdownPerfil" id="dropdownPerfil">
+                            <a href="./login.html" id="link-login-menu" style="color: #3D1B07;">Log in</a>
+                            <span id="usuario-logado-menu"
+                                style="display: none; color: #3D1B07; font-size: 14px; text-align: left; line-height: 1.4;">
+                                Logado como:<br><strong style="color: #734930;" id="nome-usuario-container"></strong>
+                            </span>
+                            <hr>
+                            <input type="checkbox" id="modoEscuro">
+                            <label for="modoEscuro">Modo Escuro</label>
+                        </div>
+                    </div>
+            </ul>
+        </nav>
+    </header>
+    <div class="principal">
+        <div class="content">
+            <div class="sobreNos">
+                <div class="titulo">
+                    Sobre nós
+                </div>
+                <div class="texto">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla felis, molestie eu fermentum
+                        a,
+                        mattis non ante. Integer bibendum, tortor vel auctor mattis, nulla ex tempor lacus, et finibus
+                        felis
+                        quam et enim. Integer quis rhoncus enim. Fusce sit amet porttitor eros. Donec hendrerit dui
+                        vestibulum, eleifend felis eu, convallis ipsum. Sed ac dapibus ex. Fusce malesuada enim nec odio
+                        eleifend congue. Suspendisse non lacus nunc. In sagittis leo lorem, blandit ornare justo
+                        sagittis
+                        ut. Nulla molestie tincidunt ex, ac dictum lorem tempor quis. Nam scelerisque sodales tincidunt.
+                        In
+                        hac habitasse platea dictumst.
+                        <br><br>
+                        Curabitur eget purus volutpat, laoreet odio non, congue risus. Pellentesque eu nisi gravida,
+                        suscipit ipsum eget, dignissim neque. Mauris laoreet ut mi non aliquam. Maecenas ac laoreet
+                        ligula,
+                        quis lobortis ipsum. Maecenas viverra tellus non turpis molestie, vitae blandit est faucibus.
+                        Sed
+                        consectetur finibus cursus. Vivamus sit amet maximus neque. In ut tellus imperdiet, auctor
+                        turpis
+                        et, pretium odio. Donec iaculis vestibulum enim sed sollicitudin. Pellentesque habitant morbi
+                        tristique senectus et netus et malesuada fames ac turpis egestas. Fusce in vulputate nisl.
+                        Interdum
+                        et malesuada fames ac ante ipsum primis in faucibus.
+                        <br><br>
+                        Pellentesque mattis varius convallis. Ut sed efficitur dui, vitae lacinia mi. Morbi ante magna,
+                        gravida eget mi ac, rutrum aliquam mi. Phasellus vitae iaculis est. Nulla facilisi. Sed bibendum
+                        vulputate diam, lobortis venenatis arcu dictum sit amet. Aenean at fringilla nunc. Etiam
+                        bibendum
+                        nunc quis justo dapibus varius. In posuere mauris metus, a vulputate ligula interdum sit amet.
+                    </p>
+                </div>
+            </div>
+            <div class="titulo" style="margin-top: 30px;">
+                Contatos
+            </div>
+            <div class="botoes">
+                <button class="botao" id="whatsapp" onclick="whatsapp()">Whatsapp</button>
+                <button class="botao" id="instagram" onclick="instagram()">Instagram</button>
+                <button class="botao" id="facebook" onclick="facebook()">Facebook</button>
+                <button class="botao" id="twitter" onclick="twitter()" style="color: white;">X/Twitter</button>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/js/saibaMais.js"></script>
+    <footer>
+        <p>
+            © SEICIT/SUBTI - Subsecretaria de Tecnologia da Informação<br>
+            Rua Maestro Antônio Cícero, 111, Caçaroca, Prefeitura, Serra/ES, CEP 29176-11
+        </p>
+    </footer>
+    <script src="../assets/js/script.js"></script>
+</body>
+
+</html>

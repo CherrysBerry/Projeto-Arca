@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projeto ARCA</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+  <header>
+    <div>
+      <a href="./index.html" class="logo" style="color: #F9AF58;">Projeto ARCA</a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="./paginas/consulta.html">Agende uma Consulta</a></li>
+        <li><a href="./paginas/adocao.html">Adoção</a></li>
+        <li><a href="./paginas/denuncias.html">Denúncias</a></li>
+        <li><a href="#" onclick="redirecionarSolicitacoes(event)">Solicitações</a></li>
+        <li><a href="./paginas/saibaMais.html">Saiba Mais</a></li>
+        <li>
+          <div class="perfil">
+            <button id="botaoPerfil" onclick="toggleMenu()">
+              <img src="./imgs/Profile.png" alt="imagem de perfil">
+            </button>
+            <div class="dropdownPerfil" id="dropdownPerfil">
+              <a href="./paginas/login.html" id="link-login-menu" style="color: #3D1B07;">Log in</a>
+              <span id="usuario-logado-menu"style="display: none; color: #3D1B07; font-size: 14px; text-align: left; line-height: 1.4;">
+              Logado como:<br><strong style="color: #734930;" id="nome-usuario-container"></strong>
+              </span>
+              <hr>
+              <input type="checkbox" id="modoEscuro">
+              <label for="modoEscuro">Modo Escuro</label>
+            </div>
+          </div>
+      </ul>
+    </nav>
+  </header>
+  <section class="hero">
+    <h1>ARCA - Animais Resgatados, cuidados e acolhidos</h1>
+    <p>
+      Plataforma dedicada à proteção animal, adoção responsável,
+      denúncias e serviços comunitários voltados ao cuidado e bem-estar.
+    </p>
+  </section>
+  <h1 class="news">Noticias</h1>
+  <section class="carousel">
+    <div class="slides">
+
+      <div class="slide">
+        <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=1200&auto=format&fit=crop"
+          alt="Cachorro" />
+        <div class="slide-content">
+          <h2>Adoção Responsável</h2>
+          <p>Ajude um animal a encontrar um novo lar cheio de amor.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <img src="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?q=80&w=1200&auto=format&fit=crop"
+          alt="Gato" />
+        <div class="slide-content">
+          <h2>Faça Denúncias</h2>
+          <p>Contribua para combater maus-tratos e abandono.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1200&auto=format&fit=crop"
+          alt="Animais" />
+        <div class="slide-content">
+          <h2>Projeto Comunitário</h2>
+          <p>Unindo pessoas para proteger e cuidar dos animais.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cards">
+
+    <div class="card">
+      <h3>Agendamento</h3>
+      <p>Agende consultas e atendimentos rapidamente pelo sistema.</p>
+      <button class="btn btn-primary">Agendar</button>
+    </div>
+    <div class="card">
+      <h3>Adoção</h3>
+      <p>Veja animais disponíveis e participe do processo de adoção.</p>
+      <a href="./pages/adocao.html" style="text-decoration: none;"><button class="btn btn-primary">Adotar</button></a>
+    </div>
+
+    <div class="card">
+      <h3>Denúncias</h3>
+      <p>Reporte situações de risco e maus-tratos de forma segura.</p>
+      <button class="btn btn-primary">Denunciar</button>
+    </div>
+
+  </section>
+
+  <section class="about">
+    <h2>Missão do Projeto</h2>
+    <p>
+      O Projeto ARCA busca criar um ambiente acessível, moderno e intuitivo,
+      oferecendo recursos para adoção, denúncias e comunicação entre a população
+      e os órgãos responsáveis pela proteção animal.
+    </p>
+  </section>
+
+  <footer>
+    <p>
+      © SEICIT/SUBTI - Subsecretaria de Tecnologia da Informação<br>
+      Rua Maestro Antônio Cícero, 111, Caçaroca, Prefeitura, Serra/ES, CEP 29176-11
+    </p>
+  </footer>
+  <script src="./assets/js/script.js"></script>
+</body>
+
+</html>

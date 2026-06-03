@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="../assets/css/login.css">
+</head>
+
+<body>
+  <header>
+    <div>
+      <a href="../index.html" class="logo" style="color: #F9AF58;">Projeto ARCA</a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="./consulta.html">Agende uma Consulta</a></li>
+        <li><a href="./adocao.html">Adoção</a></li>
+        <li><a href="./denuncias.html">Denúncias</a></li>
+        <li><a href="#" onclick="redirecionarSolicitacoes(event)">Solicitações</a></li>
+        <li><a href="./saibaMais.html">Saiba Mais</a></li>
+        <li>
+          <div class="perfil">
+            <button id="botaoPerfil" onclick="toggleMenu()">
+              <img src="../imgs/Profile.png" alt="imagem de perfil">
+            </button>
+            <div class="dropdownPerfil" id="dropdownPerfil">
+              <a href="./login.html" id="link-login-menu" style="color: #3D1B07;">Log in</a>
+              <span id="usuario-logado-menu"
+                style="display: none; color: #3D1B07; font-size: 14px; text-align: left; line-height: 1.4;">
+                Logado como:<br><strong style="color: #734930;" id="nome-usuario-container"></strong>
+              </span>
+              <hr>
+              <input type="checkbox" id="modoEscuro">
+              <label for="modoEscuro">Modo Escuro</label>
+            </div>
+          </div>
+      </ul>
+    </nav>
+  </header>
+  <div class="principal">
+    <div class="content">
+      <div class="imagemPrefeitura">
+        <img src="../imgs/BRASAO_PREF_SERRA_VERTICAL_NEGATIVA.png" alt="Logo Prefeitura da Serra" width="100%">
+      </div>
+      <div class="login">
+        <label for="email" id="emailLabel">E-mail: </label>
+        <input type="email" name="email" id="email">
+        <label for="senha" id="senhaLabel">Senha: </label>
+        <input type="password" name="senha" id="senha">
+        <br>
+        <div class="rememberMe">
+          <input type="checkbox" name="lembredemim" id="rememberMe">
+          <label for="lembredemim">Lembre de mim</label>
+          <br><br>
+        </div>
+        <div class="entrar">
+          <button id="login" onclick="logar()" class="botao">Entrar</button>
+          <a href="" id="forgotPass">Esqueci minha senha</a>
+        </div>
+        <br>
+        <div class="ou">
+          <span>ou entrar usando:</span>
+        </div>
+        <br>
+        <button id="facebook" onclick="facebook()" class="botao">Facebook</button>
+        <button id="google" onclick="google()" class="botao">Google</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>
+      © SEICIT/SUBTI - Subsecretaria de Tecnologia da Informação<br>
+      Rua Maestro Antônio Cícero, 111, Caçaroca, Prefeitura, Serra/ES, CEP 29176-11
+    </p>
+  </footer>
+  <script src="../assets/js/login.js"></script>
+  <script src="../assets/js/script.js"></script>
+</body>
+
+</html>

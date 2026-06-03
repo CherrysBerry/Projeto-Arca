@@ -1,0 +1,333 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'LouisGeorgeCafe';
+    font-size: clamp(0.8rem, 100vw, 1rem);
+}
+
+body.dark-theme {
+    --bg-principal: var(--cor-marrom-escuro);
+    --texto-principal: var(--cor-pessego);
+}
+
+@font-face {
+    font-family: 'HeartBubble';
+    src: url('../fonts/HeartBubble.otf');
+}
+
+@font-face {
+    font-family: 'LouisGeorgeCafe';
+    src: url('../fonts/LouisGeorgeCafe.ttf');
+}
+
+body {
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #734930;
+}
+
+header {
+    background-color: #3D1B07;
+    color: #F9AF58;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    flex-shrink: 0;
+    margin-bottom: 40px;
+}
+
+.logo {
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'HeartBubble';
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    align-items: center;
+    font-family: 'LouisGeorgeCafe';
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 8px;
+    transition: 0.3s;
+    font-size: 0.95rem;
+}
+
+nav a:hover {
+    background-color: #F9AF58;
+    color: #3D1B07;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+}
+
+@media (max-width: 1300px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .login {
+        width: 100%;
+    }
+
+    .imagemPrefeitura {
+        appearance: none;
+    }
+}
+
+#emailLabel,
+#senhaLabel {
+    justify-self: center;
+}
+
+.entrar,
+.ou,
+#facebook,
+#google {
+    grid-column: 1 / 3;
+}
+
+.entrar,
+.ou {
+    display: flex;
+    justify-content: center;
+}
+
+.rememberMe {
+    gap: 5px;
+}
+
+.entrar {
+    gap: 30px;
+}
+
+#facebook,
+#google {
+    width: 50%;
+    justify-self: center;
+}
+
+.ou {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.ou::before,
+.ou::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background-color: #ffffff;
+}
+
+#login {
+    background-color: #3D1B07;
+    color: #ffffff;
+}
+
+#login:hover,
+#facebook:hover,
+#google:hover {
+    cursor: pointer;
+}
+
+#login,
+#facebook,
+#google {
+    border-style: none;
+    border-radius: 25px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#forgotPass {
+    color: #ffffff;
+
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+        color: #ffffff;
+    }
+}
+
+#rememberMe {
+    background-color: #3D1B07;
+    opacity: 40%;
+    border: none;
+}
+
+#rememberMe:checked {
+    background-color: #3D1B07;
+    opacity: 100%;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.principal {
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9%;
+    width: 80%;
+}
+
+.imagemPrefeitura {
+    width: 20%;
+    margin-bottom: 10px;
+}
+
+.login {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto auto auto auto auto;
+    grid-auto-flow: row;
+    gap: 10px;
+    width: min(90vw, 500px);
+
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 20px;
+    background-color: #f9af58;
+    border-radius: 15px;
+}
+
+
+footer {
+    background-color: #3D1B07;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    flex-shrink: 0;
+}
+
+#facebook {
+    background-color: #1877F2;
+}
+
+#google {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #ffffff !important;
+}
+
+#perfil {
+    border: none;
+    background-color: transparent;
+}
+
+.botao {
+    transition: transform 0.3s ease;
+}
+
+.botao:hover {
+    transform: scale(1.05);
+}
+
+#botaoPerfil {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+#botaoPerfil img {
+    width: 40px;
+    height: 40px;
+}
+
+.dropdownPerfil {
+    position: fixed;
+    top: 81px;
+    right: 0px;
+    background-color: #F9AF58;
+    border-radius: 12px;
+    border: 4px #3D1B07;
+    padding: 30px 20px;
+    min-width: 150px;
+    z-index: 999;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: #3D1B07;
+    display: none;
+}
+
+.dropdownPerfil.aberto {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.dropdownPerfil input[type="checkbox"] {
+    display: none;
+}
+
+.dropdownPerfil label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 8px;
+    color: #3D1B07;
+}
+
+.dropdownPerfil label::before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: #734930;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><line x1='5' y1='12' x2='19' y2='12' stroke='%23F9AF58' stroke-width='3'/></svg>");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 16px;
+}
+
+.dropdownPerfil input[type="checkbox"]:checked+label::before {
+    background-color: #3D1B07;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F9AF58' stroke-width='3'><polyline points='20 6 9 17 4 12'/></svg>");
+}

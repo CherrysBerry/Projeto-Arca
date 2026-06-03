@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adoção</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../assets/css/adocao.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <a href="../index.html" class="logo" style="color: #F9AF58;">Projeto ARCA</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="./consulta.html">Agende uma Consulta</a></li>
+                <li><a href="./adocao.html">Adoção</a></li>
+                <li><a href="./denuncias.html">Denúncias</a></li>
+                <li><a href="#" onclick="redirecionarSolicitacoes(event)">Solicitações</a></li>
+                <li><a href="./saibaMais.html">Saiba Mais</a></li>
+                <li>
+                    <div class="perfil">
+                        <button id="botaoPerfil" onclick="toggleMenu()">
+                            <img src="../imgs/Profile.png" alt="imagem de perfil">
+                        </button>
+                        <div class="dropdownPerfil" id="dropdownPerfil">
+                            <a href="./login.html" id="link-login-menu" style="color: #3D1B07;">Log in</a>
+                            <span id="usuario-logado-menu"
+                                style="display: none; color: #3D1B07; font-size: 14px; text-align: left; line-height: 1.4;">
+                                Logado como:<br><strong style="color: #734930;" id="nome-usuario-container"></strong>
+                            </span>
+                            <hr>
+                            <input type="checkbox" id="modoEscuro">
+                            <label for="modoEscuro">Modo Escuro</label>
+                        </div>
+                    </div>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="adoption-page">
+        <h1 class="adoption-title">Adoção</h1>
+
+        <div class="adoption-wrapper">
+            <aside class="filters-sidebar">
+                <div class="filter-header">
+                    <span class="filter-toggle"><i class="fa-solid fa-chevron-left"></i></span>
+                    <h3>Filtros</h3>
+                </div>
+
+                <div class="filter-section">
+                    <h4>Espécie</h4>
+                    <div class="filter-options">
+                        <label class="toggle-filter">
+                            <input type="checkbox" value="gato" class="filter-checkbox">
+                            <span class="toggle-switch"></span>
+                            <span class="label-text">Gato</span>
+                        </label>
+                        <label class="toggle-filter">
+                            <input type="checkbox" value="cachorro" class="filter-checkbox">
+                            <span class="toggle-switch"></span>
+                            <span class="label-text">Cachorro</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h4>Gênero</h4>
+                    <div class="filter-options">
+                        <label class="toggle-filter">
+                            <input type="checkbox" value="femea" class="filter-checkbox">
+                            <span class="toggle-switch"></span>
+                            <span class="label-text">Fêmea</span>
+                        </label>
+                        <label class="toggle-filter">
+                            <input type="checkbox" value="macho" class="filter-checkbox">
+                            <span class="toggle-switch"></span>
+                            <span class="label-text">Macho</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h4>Porte</h4>
+                    <div class="filter-options">
+                        <label class="toggle-filter">
+                            <input type="checkbox" value="pequeno" class="filter-checkbox">
+                            <span class="toggle-switch"></span>
+                            <span class="label-text">Pequeno</span>
+                        </label>
+                        <label class="toggle-filter">
+                            <input type="checkbox" value="medio" class="filter-checkbox">
+                            <span class="toggle-switch"></span>
+                            <span class="label-text">Médio</span>
+                        </label>
+                        <label class="toggle-filter">
+                            <input type="checkbox" value="grande" class="filter-checkbox">
+                            <span class="toggle-switch"></span>
+                            <span class="label-text">Grande</span>
+                        </label>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="animals-section">
+                <div class="animals-grid" id="animalsGrid"></div>
+                <div class="pagination" id="pagination"></div>
+
+                <div class="cta-section">
+                    <p>Deseja pedir um cadastro para adoção? <a href="../paginas/doacao.html">Clique aqui</a></p>
+                </div>
+            </main>
+        </div>
+    </section>
+
+    <footer>
+        <p>
+            © SEICIT/SUBTI - Subsecretaria de Tecnologia da Informação<br>
+            Rua Maestro Antônio Cícero, 111, Caçaroca, Prefeitura, Serra/ES, CEP 29176-11
+        </p>
+    </footer>
+
+    <script src="../assets/js/adocao.js"></script>
+    <script src="../assets/js/script.js"></script>
+</body>
+
+</html>

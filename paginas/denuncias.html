@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Denúncias - Projeto ARCA</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'LouisGeorgeCafe', sans-serif;
+    }
+
+    @font-face {
+      font-family: 'HeartBubble';
+      src: url('../assets/fonts/HeartBubble.otf');
+    }
+
+    @font-face {
+      font-family: 'LouisGeorgeCafe';
+      src: url('../assets/fonts/LouisGeorgeCafe.ttf');
+    }
+
+    body {
+      background-color: #734930;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #3D1B07;
+      color: #F9AF58;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 40px;
+      font-weight: bold;
+      font-family: 'HeartBubble', serif;
+      color: #F9AF58;
+      text-decoration: none;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+      align-items: center;
+    }
+
+    nav ul li {
+      display: flex;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 8px;
+      transition: 0.3s;
+      font-size: 1.1em;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    nav a:hover {
+      background-color: #F9AF58;
+      color: #3D1B07;
+    }
+
+    .perfil {
+      position: relative;
+    }
+
+    #botaoPerfil {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    #botaoPerfil img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .dropdownPerfil {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 50px;
+      background-color: #F9AF58;
+      border-radius: 10px;
+      padding: 14px 18px;
+      min-width: 160px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      z-index: 9998;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .dropdownPerfil.aberto {
+      display: flex;
+    }
+
+    .dropdownPerfil hr {
+      border: none;
+      border-top: 1px solid #3D1B07;
+    }
+
+    .dropdownPerfil label {
+      color: #3D1B07;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    main {
+      flex: 1;
+      background-color: #734930;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 20px;
+      position: relative;
+    }
+
+    .popup-sucesso {
+      display: none;
+      position: fixed;
+      top: 90px;
+      right: 40px;
+      background-color: #F9AF58;
+      border: 2px solid #3D1B07;
+      border-radius: 12px;
+      padding: 18px 24px;
+      text-align: center;
+      z-index: 9999;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .popup-sucesso.visible {
+      display: block;
+    }
+
+    .popup-sucesso p {
+      font-size: 18px;
+      color: #3D1B07;
+      font-weight: bold;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .titulo-pagina-ext {
+      font-size: 2rem;
+      color: #F9AF58;
+      text-align: center;
+      margin-bottom: 20px;
+      font-family: 'LouisGeorgeCafe', sans-serif;
+    }
+
+    .wrapper {
+      width: 90%;
+      max-width: 900px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .meio {
+      width: 100%;
+      background-color: #F9AF58;
+      border-radius: 16px;
+      padding: 30px 40px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
+    }
+
+    .field-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: flex-end;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .field-group label {
+      font-size: 0.95rem;
+      color: #3D1B07;
+    }
+
+    .sub-label {
+      font-size: 0.95rem;
+      color: #3D1B07;
+      margin-top: -8px;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    input[type="number"] {
+      background-color: #734930;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 15px;
+      font-family: 'LouisGeorgeCafe', sans-serif;
+      outline: none;
+    }
+
+    input[type="text"]::placeholder,
+    input[type="tel"]::placeholder,
+    input[type="email"]::placeholder,
+    input[type="number"]::placeholder {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-color: #734930;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 6px 40px 6px 14px;
+      font-size: 15px;
+      font-family: 'LouisGeorgeCafe', sans-serif;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path fill='white' d='M6 8L1 3h10z'/></svg>");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      outline: none;
+    }
+
+    select option {
+      background-color: #734930;
+    }
+
+    textarea {
+      resize: none;
+      background-color: #734930;
+      color: white;
+      border: none;
+      border-radius: 16px;
+      padding: 8px 12px;
+      font-size: 15px;
+      font-family: 'LouisGeorgeCafe', sans-serif;
+      outline: none;
+    }
+
+    textarea::placeholder {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .divider {
+      border: none;
+      border-top: 1.5px solid #c48a3a;
+      margin: 4px 0;
+    }
+
+    #Verde {
+      background-color: #50A324;
+      color: white;
+      border: 1px solid black;
+      border-radius: 30px;
+      padding: 6px 20px;
+      font-size: 17px;
+      font-family: 'LouisGeorgeCafe', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    #Verde:hover {
+      background-color: #3d8f40;
+    }
+
+    .btn-vermelho {
+      background-color: #c0392b;
+      color: white;
+      border: 1px solid black;
+      border-radius: 30px;
+      padding: 6px 20px;
+      font-size: 17px;
+      font-family: 'LouisGeorgeCafe', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-vermelho:hover {
+      background-color: #a93226;
+    }
+
+    .upload-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .upload-label {
+      background-color: #734930;
+      color: white;
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 15px;
+      font-family: 'LouisGeorgeCafe', sans-serif;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .upload-label:hover {
+      background-color: #3D1B07;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .file-icon {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+    .confirmacao-box {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0 4px;
+    }
+
+    .confirmacao-box.visible {
+      display: flex;
+    }
+
+    .confirmacao-box p {
+      font-size: 1.1rem;
+      color: #3D1B07;
+      font-weight: bold;
+    }
+
+    .confirmacao-botoes {
+      display: flex;
+      gap: 20px;
+    }
+
+    .enviar-row {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    footer {
+      background-color: #3D1B07;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 0;
+    }
+
+    footer p {
+      font-size: 18px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .meio {
+        padding: 20px;
+      }
+    }
+
+    #botaoPerfil {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    #botaoPerfil img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .dropdownPerfil {
+      position: fixed;
+      top: 81px;
+      right: 0px;
+      background-color: #F9AF58;
+      border-radius: 12px;
+      border: 4px #3D1B07;
+      padding: 30px 20px;
+      min-width: 150px;
+      z-index: 999;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      color: #3D1B07;
+      display: none;
+    }
+
+    .dropdownPerfil.aberto {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .dropdownPerfil input[type="checkbox"] {
+      display: none;
+    }
+
+    .dropdownPerfil label {
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+      gap: 8px;
+      color: #3D1B07;
+    }
+
+    .dropdownPerfil label::before {
+      content: "";
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background-color: #734930;
+      border-radius: 4px;
+      box-sizing: border-box;
+      transition: all 0.2s ease;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><line x1='5' y1='12' x2='19' y2='12' stroke='%23F9AF58' stroke-width='3'/></svg>");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 16px;
+    }
+
+    .dropdownPerfil input[type="checkbox"]:checked+label::before {
+      background-color: #3D1B07;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F9AF58' stroke-width='3'><polyline points='20 6 9 17 4 12'/></svg>");
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div>
+      <a href="../index.html" class="logo" style="color: #F9AF58;">Projeto ARCA</a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="./consulta.html">Agende uma Consulta</a></li>
+        <li><a href="./adocao.html">Adoção</a></li>
+        <li><a href="./denuncias.html">Denúncias</a></li>
+        <li><a href="#" onclick="redirecionarSolicitacoes(event)">Solicitações</a></li>
+        <li><a href="./saibaMais.html">Saiba Mais</a></li>
+        <li>
+          <div class="perfil">
+            <button id="botaoPerfil" onclick="toggleMenu()">
+              <img src="../imgs/Profile.png" alt="imagem de perfil">
+            </button>
+            <div class="dropdownPerfil" id="dropdownPerfil">
+              <a href="./login.html" id="link-login-menu" style="color: #3D1B07;">Log in</a>
+              <span id="usuario-logado-menu"
+                style="display: none; color: #3D1B07; font-size: 14px; text-align: left; line-height: 1.4;">
+                Logado como:<br><strong style="color: #734930;" id="nome-usuario-container"></strong>
+              </span>
+              <hr>
+              <input type="checkbox" id="modoEscuro">
+              <label for="modoEscuro">Modo Escuro</label>
+            </div>
+          </div>
+      </ul>
+    </nav>
+  </header>
+  <div class="popup-sucesso" id="popupSucesso">
+    <p>Denúncia enviado com sucesso!</p>
+    <p id="codigoRequisito" style="margin-top:6px; font-size:16px;">Código de requisito: #xxxx</p>
+  </div>
+
+  <main>
+    <div class="wrapper">
+
+      <div class="titulo-pagina-ext">Denuncias</div>
+
+      <div class="meio">
+
+        <div class="field-row">
+          <div class="field-group">
+            <label>Tipo de Denúncia:</label>
+            <select id="tipoDenuncia" style="width:200px;">
+              <option value="">Selecione...</option>
+              <option>Animal Abandonado/Ferido</option>
+              <option>Maus Tratos</option>
+            </select>
+          </div>
+        </div>
+
+        <hr class="divider" />
+
+        <div class="sub-label">Endereço:</div>
+
+        <div class="field-row">
+          <div class="field-group">
+            <label>Bairro:</label>
+            <select id="bairroSelect" style="width:160px;">
+              <option value="">Bairro</option>
+              <option>Laranjeiras</option>
+              <option>Manguinhos</option>
+              <option>Jacaraípe</option>
+              <option>Serra-Sede</option>
+              <option>Porto Canoa</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label>Logradouro:</label>
+            <input type="text" id="logradouro" placeholder="Ex: Avenida Blumenau" style="width:200px;" />
+          </div>
+          <div class="field-group">
+            <label>Número:</label>
+            <input type="text" id="numero" placeholder="Ex: 999.." inputmode="numeric"
+              oninput="this.value=this.value.replace(/\D/g,'')" style="width:90px;" />
+          </div>
+          <div class="field-group">
+            <label>Complemento:</label>
+            <input type="text" id="complemento" placeholder="Ex: próximo ao..." style="width:180px;" />
+          </div>
+        </div>
+
+        <hr class="divider" />
+
+        <div class="field-row" style="align-items: flex-start; gap: 20px;">
+          <div class="field-group" style="flex:1; min-width:220px;">
+            <label>Descrição:</label>
+            <textarea id="descricao" placeholder="Descrição" style="width:100%; height:130px;"></textarea>
+          </div>
+
+          <div
+            style="display:flex; flex-direction:column; gap:14px; flex:1; min-width:220px; justify-content: flex-end; align-self: flex-end;">
+
+            <div class="confirmacao-box" id="confirmacaoBox">
+              <p>Você tem certeza?</p>
+              <div class="confirmacao-botoes">
+                <button class="btn-vermelho" onclick="cancelarEnvio()">Não</button>
+                <button id="Verde" onclick="confirmarEnvio()">Sim</button>
+              </div>
+            </div>
+
+            <div class="enviar-row">
+              <button id="Verde" onclick="mostrarConfirmacao()">Enviar</button>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="upload-row">
+          <label class="upload-label" for="imagemDenuncia">Anexe uma imagem</label>
+          <input type="file" id="imagemDenuncia" accept="image/*" />
+          <span class="file-icon" onclick="document.getElementById('imagemDenuncia').click()" title="Anexar imagem">
+            <img src="../imgs/File.png" alt="anexar imagem" width="26" height="26">
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p style="font-size: 18px;">
+      © SEICIT/SUBTI - Subsecretaria de Tecnologia da Informação<br>
+      Rua Maestro Antônio Cícero, 111, Caçaroca, Prefeitura, Serra/ES, CEP 29176-11
+    </p>
+  </footer>
+  <script src="../script.js"></script>
+
+  <script>
+    function mostrarConfirmacao() {
+      const box = document.getElementById('confirmacaoBox');
+      box.classList.add('visible');
+      box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function cancelarEnvio() {
+      document.getElementById('confirmacaoBox').classList.remove('visible');
+    }
+
+    function confirmarEnvio() {
+      document.getElementById('confirmacaoBox').classList.remove('visible');
+
+      const codigo = '#' + Math.floor(1000 + Math.random() * 9000);
+      document.getElementById('codigoRequisito').textContent = 'Código de requisito: ' + codigo;
+
+      const popup = document.getElementById('popupSucesso');
+      popup.classList.add('visible');
+
+      setTimeout(() => {
+        popup.classList.remove('visible');
+      }, 6000);
+    }
+  </script>
+  <script src="../assets/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,426 @@
+.adoption-page {
+    padding: 40px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, rgba(115, 73, 48, 0.05) 0%, rgba(249, 175, 88, 0.05) 100%);
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.adoption-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #F9AF58;
+    margin-bottom: 40px;
+    font-family: 'LouisGeorgeCafe';
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.adoption-wrapper {
+    display: flex;
+    gap: 30px;
+}
+
+.filters-sidebar {
+    flex: 0 0 220px;
+    background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 20px;
+    height: fit-content;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.filter-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #F9AF58;
+}
+
+.filter-header .filter-toggle {
+    cursor: pointer;
+    margin-right: 10px;
+    color: #3D1B07;
+    font-size: 0.9rem;
+}
+
+.filter-header h3 {
+    color: #3D1B07;
+    font-size: 1.2rem;
+    margin: 0;
+    font-family: 'LouisGeorgeCafe';
+    font-weight: 700;
+}
+
+.filter-section {
+    margin-bottom: 25px;
+}
+
+.filter-section h4 {
+    color: #3D1B07;
+    font-size: 1rem;
+    margin-bottom: 12px;
+    font-weight: 600;
+    font-family: 'LouisGeorgeCafe';
+}
+
+.filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toggle-filter {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 8px 10px;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+.toggle-filter:hover {
+    background-color: rgba(249, 175, 88, 0.1);
+}
+
+.toggle-filter input[type="checkbox"] {
+    display: none;
+}
+
+.toggle-switch {
+    width: 40px;
+    height: 24px;
+    background-color: #ccc;
+    border-radius: 12px;
+    position: relative;
+    transition: 0.3s;
+    flex-shrink: 0;
+}
+
+.toggle-switch::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: 0.3s;
+}
+
+.toggle-filter input[type="checkbox"]:checked+.toggle-switch {
+    background-color: #F9AF58;
+}
+
+.toggle-filter input[type="checkbox"]:checked+.toggle-switch::before {
+    left: 18px;
+}
+
+.label-text {
+    color: #3D1B07;
+    font-size: 0.95rem;
+    font-weight: 500;
+    font-family: 'LouisGeorgeCafe';
+}
+
+.animals-section {
+    flex: 1;
+}
+
+.animals-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.animal-card {
+    background-color: white;
+    border: 2px solid #f0f0f0;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.animal-card:hover {
+    box-shadow: 0 8px 20px rgba(249, 175, 88, 0.3);
+    transform: translateY(-8px);
+    border-color: #F9AF58;
+}
+
+.animal-image {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 100%);
+    position: relative;
+}
+
+.animal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.animal-card:hover .animal-image img {
+    transform: scale(1.05);
+}
+
+.animal-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.animal-info h3 {
+    color: #3D1B07;
+    margin-bottom: 8px;
+    font-size: 1.3rem;
+    font-family: 'LouisGeorgeCafe';
+    font-weight: 700;
+}
+
+.animal-species {
+    color: #F9AF58;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.animal-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.detail-badge {
+    background-color: #f0f0f0;
+    color: #3D1B07;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: 'LouisGeorgeCafe';
+}
+
+.animal-description {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    font-family: 'LouisGeorgeCafe';
+    flex-grow: 1;
+}
+
+.adopt-btn {
+    background: linear-gradient(135deg, #F9AF58 0%, #f9a840 100%);
+    color: #3D1B07;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'LouisGeorgeCafe';
+    box-shadow: 0 4px 12px rgba(249, 175, 88, 0.3);
+}
+
+.adopt-btn:hover {
+    background: linear-gradient(135deg, #f9a840 0%, #f39a1c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(249, 175, 88, 0.4);
+}
+
+.adopt-btn:active {
+    transform: translateY(0);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.page-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.page-dot:hover {
+    background-color: #F9AF58;
+    transform: scale(1.2);
+}
+
+.page-dot.active {
+    background-color: #3D1B07;
+    transform: scale(1.4);
+}
+
+.cta-section {
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(135deg, #fff8f0 0%, #fffbf7 100%);
+    border-radius: 12px;
+    border: 2px solid #F9AF58;
+    box-shadow: 0 4px 12px rgba(249, 175, 88, 0.2);
+}
+
+.cta-section p {
+    color: #3D1B07;
+    font-size: 1rem;
+    margin: 0;
+    font-family: 'LouisGeorgeCafe';
+    font-weight: 600;
+}
+
+.cta-section a {
+    color: #F9AF58;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+    border-bottom: 2px solid #F9AF58;
+}
+
+.cta-section a:hover {
+    color: #3D1B07;
+    border-bottom-color: #3D1B07;
+}
+
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+    font-family: 'LouisGeorgeCafe';
+}
+
+nav a.active {
+    background-color: #F9AF58;
+    color: #3D1B07;
+}
+
+@media (max-width: 1024px) {
+    .animals-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .adoption-wrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .filters-sidebar {
+        flex: none;
+    }
+
+    .animals-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .adoption-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .animals-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .adoption-title {
+        font-size: 1.6rem;
+    }
+
+    .adoption-wrapper {
+        gap: 15px;
+    }
+}
+
+#botaoPerfil {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+#botaoPerfil img {
+    width: 40px;
+    height: 40px;
+}
+
+.dropdownPerfil {
+    position: fixed;
+    top: 81px;
+    right: 0px;
+    background-color: #F9AF58;
+    border-radius: 12px;
+    border: 4px #3D1B07;
+    padding: 30px 20px;
+    min-width: 150px;
+    z-index: 999;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: #3D1B07;
+    display: none;
+}
+
+.dropdownPerfil.aberto {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.dropdownPerfil input[type="checkbox"] {
+    display: none;
+}
+
+.dropdownPerfil label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 8px;
+    color: #3D1B07;
+}
+
+.dropdownPerfil label::before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: #734930;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><line x1='5' y1='12' x2='19' y2='12' stroke='%23F9AF58' stroke-width='3'/></svg>");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 16px;
+}
+
+.dropdownPerfil input[type="checkbox"]:checked+label::before {
+    background-color: #3D1B07;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F9AF58' stroke-width='3'><polyline points='20 6 9 17 4 12'/></svg>");
+}

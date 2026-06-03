@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto ARCA - Solicitações</title>
+    <link rel="stylesheet" href="../assets/css/solitacoesFunc.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <a href="../index.html" class="logo" style="color: #F9AF58;">Projeto ARCA</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="./consulta.html">Agende uma Consulta</a></li>
+                <li><a href="./adocao.html">Adoção</a></li>
+                <li><a href="./denuncias.html">Denúncias</a></li>
+                <li><a href="#" onclick="redirecionarSolicitacoes(event)">Solicitações</a></li>
+                <li><a href="./saibaMais.html">Saiba Mais</a></li>
+                <li>
+                    <div class="perfil">
+                        <button id="botaoPerfil" onclick="toggleMenu()">
+                            <img src="../imgs/Profile.png" alt="imagem de perfil">
+                        </button>
+                        <div class="dropdownPerfil" id="dropdownPerfil">
+                            <a href="./login.html" id="link-login-menu" style="color: #3D1B07;">Log in</a>
+                            <span id="usuario-logado-menu"
+                                style="display: none; color: #3D1B07; font-size: 14px; text-align: left; line-height: 1.4;">
+                                Logado como:<br><strong style="color: #734930;" id="nome-usuario-container"></strong>
+                            </span>
+                            <hr>
+                            <input type="checkbox" id="modoEscuro">
+                            <label for="modoEscuro">Modo Escuro</label>
+                        </div>
+                    </div>
+            </ul>
+        </nav>
+    </header>
+    <main class="solicitacoes-container">
+
+        <section class="filtro-abas">
+            <h2>Visualizar solicitações de:</h2>
+            <div class="abas-grupo">
+                <button class="aba-btn active" onclick="alternarAba(this)">Castração</button>
+                <button class="aba-btn" onclick="alternarAba(this)">Vacinação</button>
+                <button class="aba-btn" onclick="alternarAba(this)">Consulta</button>
+                <button class="aba-btn" onclick="alternarAba(this)">Adoção</button>
+                <button class="aba-btn" onclick="alternarAba(this)">Denúncia</button>
+            </div>
+        </section>
+
+        <div class="painel-conteudo">
+
+            <div class="coluna-esquerda" id="container-cards-admin">
+                <div class="card-agendamento" id="carda-fantasma">
+                    <div class="card-header-info">
+                        <span class="titulo-agendamento">Nome do agendamento</span>
+                        <span class="codigo-agendamento">#xxxxx</span>
+                    </div>
+                    <span class="status-badge">Em andamento</span>
+                </div>
+
+                <div class="box-confirmacao" id="box-confirmacao">
+                    <h3>Você tem certeza?</h3>
+                    <div class="botoes-confirmacao">
+                        <button class="btn-nao" onclick="responderConfirmacao(false)">Não</button>
+                        <button class="btn-sim" onclick="responderConfirmacao(true)">Sim</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="coluna-direita">
+                <section class="painel-detalhes">
+                    <h2>Solicitação: <span id="tipo-solicitacao-titulo"></span></h2>
+                    <p class="usuario-info">Fulano Alves Júnior - 099.876.234-67</p>
+
+                    <div class="campo-detalhe">
+                        <label>Informações sobre a solicitação:</label>
+                        <textarea rows="3" placeholder="Digite as informações..." id="admin-info-texto"></textarea>
+                    </div>
+
+                    <div class="campo-detalhe campo-data">
+                        <label>Data:</label>
+                        <input type="text" value="12/05/2026" placeholder="DD/MM/AAAA" id="admin-data">
+                    </div>
+
+                    <div class="campo-detalhe">
+                        <label>Atualizações:</label>
+                        <textarea rows="4" placeholder="Adicione atualizações..." id="admin-atualizacoes"></textarea>
+                    </div>
+
+                    <div class="acoes-detalhe">
+                        <label class="btn-anexar">
+                            <input type="file" style="display: none;" id="input-arquivo">
+                            Anexar arquivo
+                        </label>
+
+                        <div class="select-status-container">
+                            <select class="select-status" id="admin-select-status" style="background-color: #734930;">
+                                <option value="andamento">Status da solicitação</option>
+                                <option value="Em andamento">Em andamento</option>
+                                <option value="Concluído">Concluído</option>
+                                <option value="Indeferido">Indeferido</option>
+                            </select>
+                            <div class="select-seta" style="background-color: #734930;">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container-btn-confirmar">
+                        <button type="button" class="btn-enviar-dados" onclick="solicitarConfirmacao()">
+                            Confirmar
+                        </button>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>
+            &copy; SEICIT/SUBTI - Subsecretaria de Tecnologia da Informação<br>
+            Rua Maestro Antônio Cícero, 111, Caçaroca, Prefeitura, Serra/ES, CEP 29176-11
+        </p>
+    </footer>
+
+    <script>
+        function alternarAba(botao) {
+            document.querySelectorAll('.aba-btn').forEach(b => b.classList.remove('active'));
+            botao.classList.add('active');
+            document.getElementById('tipo-solicitacao-titulo').innerText = botao.innerText.toLowerCase();
+        }
+
+        function solicitarConfirmacao() {
+            const box = document.getElementById('box-confirmacao');
+            box.classList.add('visible');
+            box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function responderConfirmacao(resposta) {
+            const box = document.getElementById('box-confirmacao');
+            if (resposta) {
+                alert("Dados gravados e confirmados com sucesso!");
+            }
+            box.classList.remove('visible');
+        }
+
+        document.getElementById('input-arquivo').addEventListener('change', function () {
+            if (this.files.length > 0) {
+                alert("Arquivo '" + this.files[0].name + "' anexado!");
+            }
+        });
+    </script>
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/solicitacao.js"></script>
+</body>
+
+</html>

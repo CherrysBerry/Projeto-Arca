@@ -1,0 +1,541 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'LouisGeorgeCafe';
+}
+
+@font-face {
+  font-family: 'HeartBubble';
+  src: url('../fonts/HeartBubble.otf');
+}
+
+@font-face {
+  font-family: 'LouisGeorgeCafe';
+  src: url('../fonts/LouisGeorgeCafe.ttf');
+}
+
+header {
+  background-color: #3D1B07;
+  color: #F9AF58;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 40px;
+  font-weight: bold;
+  font-family: 'HeartBubble';
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  align-items: center;
+  font-family: 'LouisGeorgeCafe';
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: 0.3s;
+  font-size: 1.1em;
+}
+
+nav a:hover {
+  background-color: #F9AF58;
+  color: #3D1B07;
+}
+
+.dark-mode {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.hero {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #734930;
+}
+
+.hero p {
+  max-width: 700px;
+  margin: auto;
+  line-height: 1.6;
+  color: #555;
+}
+
+.about {
+  padding: 60px 40px;
+  background-color: #FFE7D1;
+  text-align: center;
+}
+
+.about h2 {
+  margin-bottom: 20px;
+  color: #734930;
+  font-size: 2rem;
+}
+
+.about p {
+  max-width: 800px;
+  margin: auto;
+  line-height: 1.7;
+  color: #444;
+}
+
+footer {
+  background-color: #3D1B07;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .carousel {
+    height: 300px;
+  }
+
+  .slide img {
+    height: 300px;
+  }
+}
+
+main {
+  width: 100%;
+  min-width: 100px;
+  min-height: 100px;
+  background-color: #734930;
+  display: flex;
+  justify-self: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+body {
+  background-color: #734930;
+}
+
+.meio {
+  height: auto;
+  width: 90%;
+  max-width: 900px;
+  min-height: 100px;
+  background-color: #F9AF58;
+  border-radius: 16px;
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.Agendar {
+  margin-top: 50px;
+  margin: 0 auto;
+  font-size: 40px;
+  color: #F9AF58;
+  font-family: 'LouisGeorgeCafe';
+}
+
+.tipoAtendimento {
+  margin: 0 auto;
+  display: flex;
+  gap: 30px;
+  margin-left: 0px;
+  font-size: 20px;
+}
+
+#dataHorario {
+  border: #734930;
+  border-color: #734930;
+  border-radius: 30px;
+  background-color: #734930;
+  width: 12%;
+  padding: 5px;
+  margin-left: 15px;
+}
+
+.horariosDisponives {
+  display: flex;
+  flex-direction: row;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+#horariosDisponives {
+  display: flex;
+  gap: 5px;
+}
+
+.linhaHorarios {
+  display: flex;
+}
+
+.nomeAnimal {
+  display: flex;
+}
+
+.nome {
+  display: flex;
+}
+
+.telefone {
+  display: flex;
+}
+
+.file {
+  width: 10%;
+  margin-bottom: -6px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.termoDeEsclarecimento {
+  display: flex;
+  flex-direction: row;
+  width: 30%;
+  height: 50%;
+  justify-self: center;
+  margin-left: 40px;
+}
+
+#Verde {
+  display: flex;
+  background-color: #50A324;
+  color: white;
+  border: 1px solid black;
+  border-radius: 30px;
+  padding: 4px 15px;
+  font-size: 18px;
+  font-family: 'LouisGeorgeCafe';
+  cursor: pointer;
+  transition: all 0.2s ease;
+  justify-self: center;
+}
+
+#Verde:hover {
+  background-color: #3d8f40;
+}
+
+.tipoAtendimento input[type="radio"] {
+  display: none;
+}
+
+.tipoAtendimento label {
+  position: relative;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  gap: 8px;
+}
+
+.tipoAtendimento label::before {
+  content: "";
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border: 4px solid #734930;
+  border-radius: 50%;
+  background-color: transparent;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  order: -1;
+}
+
+.tipoAtendimento input[type="radio"]:checked+label::before {
+  background-color: #3D1B07 !important;
+  border-color: #3D1B07 !important;
+  box-shadow: inset 0 0 0 3px #F9AF58;
+}
+
+.grupoHorarios input[type="radio"] {
+  display: none;
+}
+
+.grupoHorarios label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 40px;
+  border-radius: 30px;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'LouisGeorgeCafe';
+  border: 1.5px solid black;
+}
+
+.grupoHorarios label.disponivel {
+  background-color: #734930;
+}
+
+.grupoHorarios label.indisponivel {
+  background-color: #8B3A10;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.grupoHorarios label.selecionado {
+  background-color: #3D1B07;
+}
+
+.grupoHorarios input[type="radio"]:checked+label.disponivel {
+  background-color: #3D1B07;
+}
+
+.linhaHorarios {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.linhaHorarios2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+#especieSelect {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #734930;
+  color: white;
+  border: 2px solid #734930;
+  border-radius: 22px;
+  padding: 5px 40px 5px 15px;
+  font-size: 18px;
+  font-family: 'LouisGeorgeCafe';
+  cursor: pointer;
+  width: 130px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path fill='white' d='M6 8L1 3h10z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  transition: background-color 0.2s ease;
+}
+
+#especieSelect:hover {
+  background-color: #3D1B07;
+}
+
+#especieSelect option {
+  background-color: #734930;
+  color: white;
+}
+
+#especieSelect option:hover {
+  background-color: #3D1B07;
+}
+
+#especieSelect:focus {
+  outline: none;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"] {
+  background-color: #734930;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 16px;
+  font-family: 'LouisGeorgeCafe';
+  outline: none;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus {
+  outline: none;
+}
+
+input[type="text"]::placeholder,
+input[type="tel"]::placeholder,
+input[type="email"]::placeholder {
+  color: white;
+}
+
+p {
+  font-size: 22px;
+}
+
+span {
+  font-size: 22px;
+}
+
+.dadosTutor {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.nomeEETelefone {
+  display: flex;
+  align-items: center;
+  gap: 5%;
+}
+
+.campo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.emailLabel {
+  display: flex;
+  gap: 10px;
+}
+
+textarea {
+  resize: none;
+  width: 60%;
+  height: 100px;
+  background-color: #734930;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 16px;
+  font-family: 'LouisGeorgeCafe';
+  outline: none;
+}
+
+textarea::placeholder {
+  color: white;
+}
+
+input[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #734930;
+  color: white;
+  border-radius: 12px;
+  border: none;
+  padding: 6px 15px;
+  font-size: 18px;
+  font-family: 'LouisGeorgeCafe';
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+.nomeAnimal {
+  gap: 5px;
+}
+
+#botaoPerfil {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+#botaoPerfil img {
+  width: 40px;
+  height: 40px;
+}
+
+.dropdownPerfil {
+  position: fixed;
+  top: 81px;
+  right: 0px;
+  background-color: #F9AF58;
+  border-radius: 12px;
+  border: 4px #3D1B07;
+  padding: 30px 20px;
+  min-width: 150px;
+  z-index: 999;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  color: #3D1B07;
+  display: none;
+}
+
+.dropdownPerfil.aberto {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.dropdownPerfil input[type="checkbox"] {
+  display: none;
+}
+
+.dropdownPerfil label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 8px;
+  color: #3D1B07;
+}
+
+.dropdownPerfil label::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-color: #734930;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><line x1='5' y1='12' x2='19' y2='12' stroke='%23F9AF58' stroke-width='3'/></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px;
+}
+
+.dropdownPerfil input[type="checkbox"]:checked+label::before {
+  background-color: #3D1B07;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F9AF58' stroke-width='3'><polyline points='20 6 9 17 4 12'/></svg>");
+}
+body.dark-mode {
+  background-color: #1a0a02;
+}
+
+body.dark-mode header {
+  background-color: #1a0a02;
+}
