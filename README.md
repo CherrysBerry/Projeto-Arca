@@ -1,0 +1,1 @@
+Esse projeto busca dar ideias para o site do projeto ARCA da Prefeitura da Serra - ES. Foi feito um site de ideia para o projeto ARCA, a qual aprendemos habilidades como o figma, postgreSQL, html, css e javascript, inclusive nesse projeto foi feito uma crud. Foi desenvolvido por Leandro Kuster, Luis Guilherme, Milena Wasconcellos, Rafael Pavani e Sophia Caliari
